@@ -1,0 +1,32 @@
+<main>
+    <h1>Catálogo de Livros</h1>
+    <table [className]="'table table-striped'">
+        <thead [className]="'table-dark'">
+            <tr>
+                <td>Título</td>
+                <td>Resumo</td>
+                <td>Editora</td>
+                <td>Autores</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let livro of livros">
+                <td>
+                    <p>{{ livro.titulo }}</p>
+                    <button [className]="'btn btn-danger'" (click)="excluir(livro.codigo)">Excluir</button>
+                </td>
+                <td>
+                    {{ livro.resumo }}
+                </td>
+                <td>
+                    {{ obterNome(livro.codEditora) }}
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let autor of livro.autores">{{ autor }}</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
